@@ -75,7 +75,7 @@
                 <summary>Click to toggle</summary>
                 {% for row in data %}
                     {% set due_date_text = row[4] %}
-                    {% if parse_due_date(due_date_text) <= current_date %}
+                    {% if parse_due_date(due_date_text) < current_date %}
                         <h4>{{ due_date_text }}</h4>
                         <div class="content-2">
                             <details>
@@ -103,7 +103,7 @@
                 <summary>Click to toggle</summary>
                 {% for row in data %}
                     {% set due_date_text = row[4] %}
-                    {% if parse_due_date(due_date_text) > current_date %}
+                    {% if parse_due_date(due_date_text) >= current_date %}
                         <h4>{{ due_date_text }}</h4>
                         <div class="content-2">
                             <details open>
