@@ -56,7 +56,7 @@ def due():
 
     # 将日期字符串转换为日期对象，并排序数据
     data.sort(key=lambda x: parse_due_date(x[4]))
-    print(data)
+    
 
     # 渲染模板并传递数据
     return render_template('dues.html', data=data, current_date=current_date)
