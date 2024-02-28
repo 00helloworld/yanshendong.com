@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yanshen - Dues</title>
+    <style>
+        .nav {
+			/* background-color: cadetblue; */
+			margin: 10px;
+			padding: 5px;
+			border-bottom: solid 3px cornflowerblue;
+
+			display: flex;
+		}
+        .nav_left {
+            flex: 3;
+            display: flex;
+        }
+        .nav_right {
+            flex: 1;
+            text-align: right;
+        }
+
+		.nav div {
+			margin: 5px 10px 5px 10px;
+			/* padding: 5px; */
+            font-family: Verdana;
+		}
+		.nav a {
+			text-decoration: none;
+			color: black;
+			display: block;
+			padding: 5px;
+			border-radius: 5px;
+
+			font-family: Verdana;
+		}
+		.nav a:hover {
+			background-color: cornflowerblue;
+		}
+
+        .content {
+            padding-left: 100px;
+        }
+        .content-1 {
+            padding-left: 150px;
+        }
+        .content-2 {
+            padding-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+		<div class="nav_left">
+            <div>LOGO</div>
+            <div><a href="{{url_for('show_resume')}}">My Resume</a></div>
+            <div><a href="#">My Project</a></div>
+            <div><a href="#">My Story</a></div>
+            <div><a href="#">My Contact</a></div>
+        </div>
+        <div class="nav_right">
+            <div>Coding Makes Life Better</div>
+        </div>
+	</div>
+
+
+    <h1>Due Data</h1>
+
+    <div class="content">
+        <H2>Overdue</H2>
+        <div class="content-1">
+            <details>
+                <summary>Click to toggle</summary>
+                {% for row in data %}
+                    {% set due_date_text = row[4] %}
+                    {% if parse_due_date(due_date_text) <= current_date %}
+                        <h4>{{ due_date_text }}</h4>
+                        <div class="content-2">
+                            <details>
+                                <summary>Click to toggle</summary>
+                                <ul>
+                                    <li>Course Code: {{ row[2] }}</li>
+                                    <li>Course Title: {{ row[3] }}</li>
+                                    <li>Due Title: {{ row[5] }}</li>
+                                    <li>Due Timestamp: {{ row[6] }}</li>
+                                    <li>Content URL: <a href="{{ row[7] }}"></a></li>
+                                    <li>Update Time: {{ row[8] }}</li>
+                                </ul>
+                            </details>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </details>
+        </div>
+    </div>
+
+    <div class="content">
+        <H2>Upcoming</H2>
+        <div class="content-1">
+            <details open>
+                <summary>Click to toggle</summary>
+                {% for row in data %}
+                    {% set due_date_text = row[4] %}
+                    {% if parse_due_date(due_date_text) > current_date %}
+                        <h4>{{ due_date_text }}</h4>
+                        <div class="content-2">
+                            <details open>
+                                <summary>Click to toggle</summary>
+                                <ul>
+                                    <li>Course Code: {{ row[2] }}</li>
+                                    <li>Course Title: {{ row[3] }}</li>
+                                    <li>Due Title: {{ row[5] }}</li>
+                                    <li>Due Timestamp: {{ row[6] }}</li>
+                                    <li>Content URL: <a href="{{ row[7] }}">Go to</a></li>
+                                    <li>Update Time: {{ row[8] }}</li>
+                                </ul>
+                            </details>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </details>
+        </div>
+    </div>
+</body>
+</html>
