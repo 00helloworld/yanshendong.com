@@ -1,0 +1,7 @@
+
+1. install webdriver
+2. install chrome binary
+3. config webdriver path in .py
+4. run utils/*.py in yanshendong.com which is root path of the project
+5. How to run hourly on linux
+    5.1. 
