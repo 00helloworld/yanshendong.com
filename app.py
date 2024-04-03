@@ -65,7 +65,7 @@ def due():
     return render_template('dues.html', data=data, current_date=current_date)
 
 
-@app.route('/projects/auto_eda_')
+@app.route('/projects/auto_eda_flask')
 def make_auto_eda():
     # 使用 redirect 函数进行端口跳转
     # 注意：这里只是一个示例，实际中你可能需要使用完整的 URL
