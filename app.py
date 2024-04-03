@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import sqlite3
 from datetime import datetime
 
@@ -13,6 +13,10 @@ def HomePage():
 def show_resume():  # inline with the 'show_resume' of jinja href="{{ url_for('show_resume')}}"
     return render_template('resume.html')
 
+
+@app.route('/projects')
+def show_projects():  # inline with the 'show_resume' of jinja href="{{ url_for('show_resume')}}"
+    return render_template('ProjectsPage.html')
 
 
 def parse_due_date(due_date_text):
@@ -56,7 +60,18 @@ def due():
 
     # 将日期字符串转换为日期对象，并排序数据
     data.sort(key=lambda x: parse_due_date(x[4]))
-    
 
     # 渲染模板并传递数据
     return render_template('dues.html', data=data, current_date=current_date)
+
+
+@app.route('/projects/auto_eda')
+def make_auto_eda():
+    # 使用 redirect 函数进行端口跳转
+    # 注意：这里只是一个示例，实际中你可能需要使用完整的 URL
+    streamlit_port = 8501
+    return redirect(f'http://127.0.0.1:{streamlit_port}/')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
