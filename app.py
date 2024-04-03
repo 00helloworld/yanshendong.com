@@ -70,7 +70,7 @@ def make_auto_eda():
     # 使用 redirect 函数进行端口跳转
     # 注意：这里只是一个示例，实际中你可能需要使用完整的 URL
     streamlit_port = 8501
-    return redirect(f'http://0.0.0.0:{streamlit_port}/')
+    return redirect(f'http://127.0.0.1:{streamlit_port}/')
 
 
 if __name__ == '__main__':
