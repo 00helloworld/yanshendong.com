@@ -65,13 +65,14 @@ def due():
     return render_template('dues.html', data=data, current_date=current_date)
 
 
-@app.route('/projects/auto_eda_flask')
+@app.route('/projects/auto_eda')
 def make_auto_eda():
     # 使用 redirect 函数进行端口跳转
     # 注意：这里只是一个示例，实际中你可能需要使用完整的 URL
     streamlit_port = 8501
-    return redirect(f'http://3.99.174.2:{streamlit_port}/')
+    # return redirect(f'http://3.99.174.2:{streamlit_port}/')
+    return render_template('Auto_eda.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

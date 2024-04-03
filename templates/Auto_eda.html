@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YanshenDong</title>
+    <style>
+        .nav {
+			/* background-color: cadetblue; */
+			margin: 10px;
+			padding: 5px;
+			border-bottom: solid 3px cornflowerblue;
+
+			display: flex;
+		}
+        .nav_left {
+            flex: 3;
+            display: flex;
+        }
+        .nav_right {
+            flex: 1;
+            text-align: right;
+        }
+
+		.nav div {
+			margin: 5px 10px 5px 10px;
+			/* padding: 5px; */
+            font-family: Verdana;
+		}
+		.nav a {
+			text-decoration: none;
+			color: black;
+			display: block;
+			padding: 5px;
+			border-radius: 5px;
+
+			font-family: Verdana;
+		}
+		.nav a:hover {
+			background-color: cornflowerblue;
+		}
+
+        .warapper_0 {
+            margin: 20px;
+            /* border: 1px solid; */
+        }
+        .warapper_0 .welcome {
+            margin-left: 30%;
+            margin-right: 30%;
+            margin-top: 100px;
+        }
+        .welcome h1 {
+            text-align: center;
+
+            font-size: 70px;
+            font-family: Verdana;
+            color: cornflowerblue;
+        }
+        .welcome h2 {
+            text-align: center;
+
+            font-size: 70px;
+            font-family: Verdana;
+            color: cornflowerblue;
+        }
+        .welcome a {
+            text-align: center;
+
+            font-size: 30px;
+            font-family: Verdana;
+            color: cornflowerblue;
+        }
+        .welcome .center_list {
+            text-align: center;
+
+            font-size: 30px;
+            font-family: Verdana;
+            color: cornflowerblue;
+        }
+
+        .welcome ul {
+            list-style-type: none;
+            padding: 0;  /* 去除列表的内边距 */
+        }
+        .welcome li {
+            margin-bottom: 15px;    /* 设置每个 <li> 下方的间距 */
+        }
+
+        .building h1 {
+            text-align: center;
+            margin-top: 150px;
+
+            font-size: 20px;
+            font-family: Verdana;
+            color: grey;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+		<div class="nav_left">
+            <div><a href="{{url_for('HomePage')}}">LOGO</a></div>
+            <div><a href="{{url_for('show_resume')}}">My Resume</a></div>
+            <div><a href="{{url_for('show_projects')}}">My Projects</a></div>
+            <div><a href="#">My Story</a></div>
+            <div><a href="#">My Contact</a></div>
+        </div>
+        <div class="nav_right">
+            <div>Coding Makes Life Better</div>
+        </div>
+	</div>
+    <iframe id="bi_iframe" src="http://127.0.0.1:8501" onload="adjustIframe();" 
+        frameborder="0" scrolling="auto">
+    </iframe>
+
+</body>
+<script>
+    function adjustIframe(){
+    var ifm= document.getElementById("bi_iframe");
+    ifm.height=document.documentElement.clientHeight;
+    ifm.width=document.documentElement.clientWidth;
+}
+</script>
+</html>
