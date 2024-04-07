@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YanshenDong</title>
+</head>
+<body>
+    <iframe id="bi_iframe" src="http://35.182.241.86:8502" onload="adjustIframe();" 
+        frameborder="0" scrolling="auto">
+    </iframe>
+
+</body>
+<script>
+    function adjustIframe(){
+    var ifm= document.getElementById("bi_iframe");
+    ifm.height=document.documentElement.clientHeight;
+    ifm.width=document.documentElement.clientWidth;
+}
+</script>
+</html>
